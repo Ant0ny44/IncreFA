@@ -4,7 +4,7 @@ from typing import Dict, List, Optional, Tuple
 import torch
 
 
-def herding_select(
+def select_exemplars(
     features: torch.Tensor, labels: torch.Tensor, budget_per_class: int
 ) -> Tuple[torch.Tensor, torch.Tensor]:
     selected_features = []
@@ -74,7 +74,7 @@ class ReplayBuffer:
         labels = torch.stack([label for _, label in samples])
         limit = self.buffer_size_per_class * labels.unique().numel()
         if features.size(0) > limit:
-            features, labels = herding_select(
+            features, labels = select_exemplars(
                 features, labels, self.buffer_size_per_class
             )
             logging.info("task %s replay exemplars: %s", task_id, features.size(0))
