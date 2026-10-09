@@ -1,0 +1,41 @@
+{
+  "families": {
+    "real": [
+      "real"
+    ],
+    "gan": [
+      "E4S",
+      "R3GAN",
+      "StyleGAN-XL",
+      "stylegan3"
+    ],
+    "autoregressive": [
+      "cogview4",
+      "gpt4o"
+    ],
+    "diffusion": [
+      "CompVis@ldm-text2im-large-256",
+      "CompVis@stable-diffusion-v1-4",
+      "Imagen3",
+      "PixArt-alpha@PixArt-XL-2-1024-MS",
+      "black-forest-labs@FLUX.1-dev",
+      "black-forest-labs@FLUX.1-schnell",
+      "latent-consistency@lcm-lora-sdv1-5",
+      "latent-consistency@lcm-lora-sdxl",
+      "midjourneyv6",
+      "nano-banana",
+      "playgroundai@playground-v2-1024px-aesthetic",
+      "playgroundai@playground-v2.5-1024px-aesthetic",
+      "runwayml@stable-diffusion-v1-5",
+      "segmind@SSD-1B",
+      "segmind@SegMoE-SD-4x2-v0",
+      "segmind@small-sd",
+      "segmind@tiny-sd",
+      "stabilityai@sdxl-turbo",
+      "stabilityai@stable-diffusion-2",
+      "stabilityai@stable-diffusion-2-1",
+      "stabilityai@stable-diffusion-3-medium-diffusers",
+      "stabilityai@stable-diffusion-xl-base-1.0"
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+device: cuda:0
+seed: 7310
+project: IncreFA
+exp: increfa
+
+data:
+  arrow_data_dir: ./IABench/data
+  split_ratio: 0.8
+  split_seed: 7310
+  split_counts:
+    cogview4:
+      train: 10000
+      test: 3000
+    nano-banana:
+      train: 9844
+      test: 3989
+  holdout_labels: [nano-banana, Imagen3]
+  time_series:
+    - playgroundai@playground-v2.5-1024px-aesthetic
+    - playgroundai@playground-v2-1024px-aesthetic
+    - StyleGAN-XL
+    - segmind@tiny-sd
+    - midjourneyv6
+    - latent-consistency@lcm-lora-sdxl
+    - segmind@SSD-1B
+    - stabilityai@stable-diffusion-2-1
+    - CompVis@ldm-text2im-large-256
+    - black-forest-labs@FLUX.1-schnell
+    - segmind@SegMoE-SD-4x2-v0
+    - stabilityai@stable-diffusion-2
+    - segmind@small-sd
+    - CompVis@stable-diffusion-v1-4
+    - latent-consistency@lcm-lora-sdv1-5
+    - PixArt-alpha@PixArt-XL-2-1024-MS
+    - cogview4
+    - stabilityai@sdxl-turbo
+    - E4S
+    - stabilityai@stable-diffusion-xl-base-1.0
+    - R3GAN
+    - runwayml@stable-diffusion-v1-5
+    - black-forest-labs@FLUX.1-dev
+    - stylegan3
+    - gpt4o
+    - stabilityai@stable-diffusion-3-medium-diffusers
+  real_label_name: real
+  task_sizes: [2, 4, 4, 4, 4, 4, 4, 1]
+  total_classes: 27
+  batch_size: 512
+  num_workers: 8
+  pin_memory: true
+  replay_batch_size: 512
+
+unseen_threshold: 0.65
+fine_loss_weight: 0.2
+coarse_loss_weight: 0.5
+unseen_mix_weight: 15.0
+replay_loss_weight: 1.0
+orth_loss_weight: 1.0
+unseen_batch_size: 2048
+unseen_num_mix: 2
+unseen_beta_min: 0.25
+unseen_beta_max: 0.75
+unseen_current_mix_fraction: 1.0
+
+optimizer:
+  scheduler_power: 0.8
+  base_lr: 0.001
+
+train:
+  epochs: 4
+
+model:
+  backbone: ViT-L/14
+  feature_layer: layer11
+  input_dim: 1024
+  hidden_units: 128
+  buffer_size: 150
+  num_families: 4
+  family_mapping_path: ./configs/iabench_families.json
