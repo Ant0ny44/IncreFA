@@ -20,7 +20,7 @@ IABench EP1 protocol, including:
 
 - CLIP feature extraction
 - Hierarchical model and family supervision
-- Herded latent replay
+- Hidden Replay
 - Pseudo-unseen feature interpolation
 - Incremental attribution and open-set evaluation
 
