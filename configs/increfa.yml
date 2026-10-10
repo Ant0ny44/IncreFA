@@ -53,7 +53,7 @@ data:
 unseen_threshold: 0.65
 fine_loss_weight: 0.2
 coarse_loss_weight: 0.5
-unseen_mix_weight: 15.0
+unseen_mix_weight: 0.5
 replay_loss_weight: 1.0
 orth_loss_weight: 1.0
 unseen_batch_size: 2048
