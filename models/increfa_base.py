@@ -286,4 +286,4 @@ class IncreFABaseClassifier(nn.Module):
         """Eq. 12: hinge penalty above the max-softmax threshold."""
         logits = self.fc(unseen_z)[:, :num_known_classes]
         confidence = F.softmax(logits, dim=-1).max(dim=-1).values
-        return F.relu(confidence - self.unseen_threshold).mean()
+        return  unseen_z.shape[0] ** 0.5 * 1.5 * F.relu(confidence - self.unseen_threshold).mean()
